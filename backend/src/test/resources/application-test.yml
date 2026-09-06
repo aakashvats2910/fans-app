@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:validatedb;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+app:
+  jwt:
+    secret: c2VjcmV0LWtleS1mb3ItdmVsdnJhLWRlbW8tYXBwLWNoYW5nZS1pbi1wcm9kdWN0aW9uLW9ubHktZm9yLWRldg==
+    expiration-ms: 3600000
+  upload:
+    dir: ./target/test-uploads
+  cors:
+    allowed-origins: http://localhost:3000
