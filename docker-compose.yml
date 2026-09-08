@@ -34,7 +34,10 @@ services:
       - "${BACKEND_PORT:-8080}:8080"
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        BACKEND_ORIGIN: http://backend:8080
     restart: unless-stopped
     depends_on:
       - backend
