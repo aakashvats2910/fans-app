@@ -22,13 +22,34 @@ payment processor is integrated.**
   swappable later for a CDN like Cloudinary since it sits behind a small
   `StorageService` interface
 
-## Prerequisites
+## Quickest way to run it: Docker
+
+If you have Docker Desktop (or Docker Engine + Compose) installed, this is the
+whole setup:
+
+```bash
+docker compose up --build
+```
+
+That builds and starts MySQL, the backend, and the frontend together, wired
+to talk to each other. Once it's up (the first build takes a few minutes),
+open **http://localhost:3000**. Data persists in Docker volumes across restarts;
+`docker compose down -v` wipes it clean.
+
+Seeded admin account: **`admin`** / **`Admin@123`**.
+
+To stop everything: `docker compose down` (add `-v` to also delete the database
+and uploaded media volumes).
+
+## Running without Docker
+
+### Prerequisites
 
 - Java 17+, Maven
 - Node.js 20+
 - MySQL 8 (or MariaDB) running locally
 
-## 1. Database
+### 1. Database
 
 Create a database and user (defaults match `backend/src/main/resources/application.yml`):
 
@@ -38,12 +59,10 @@ CREATE DATABASE velvra;
 
 The backend defaults to `root` / `root` on `localhost:3306` — override with env
 vars (`DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USERNAME`, `DB_PASSWORD`) if different.
-Flyway creates the schema automatically on startup, and seeds a demo admin account:
+Flyway creates the schema automatically on startup, and seeds the same demo
+admin account (`admin` / `Admin@123`).
 
-- **Username**: `admin`
-- **Password**: `Admin@123`
-
-## 2. Backend
+### 2. Backend
 
 ```bash
 cd backend
@@ -53,7 +72,7 @@ mvn spring-boot:run
 Runs on `http://localhost:8080`. Uploaded media is written to `./uploads`
 (configurable via `UPLOAD_DIR`) and served at `/media/**`.
 
-## 3. Frontend
+### 3. Frontend
 
 ```bash
 cd frontend

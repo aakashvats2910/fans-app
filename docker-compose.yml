@@ -1,0 +1,48 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-velvra_dev_pw}
+      MYSQL_DATABASE: velvra
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${DB_PASSWORD:-velvra_dev_pw}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: velvra
+      DB_USERNAME: root
+      DB_PASSWORD: ${DB_PASSWORD:-velvra_dev_pw}
+      JWT_SECRET: ${JWT_SECRET:-c2VjcmV0LWtleS1mb3ItdmVsdnJhLWRlbW8tYXBwLWNoYW5nZS1pbi1wcm9kdWN0aW9uLW9ubHktZm9yLWRldg==}
+      UPLOAD_DIR: /data/uploads
+      CORS_ALLOWED_ORIGINS: http://localhost:3000
+    volumes:
+      - backend_uploads:/data/uploads
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      BACKEND_ORIGIN: http://backend:8080
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql_data:
+  backend_uploads:
