@@ -41,6 +41,19 @@ Seeded admin account: **`admin`** / **`Admin@123`**.
 To stop everything: `docker compose down` (add `-v` to also delete the database
 and uploaded media volumes).
 
+### Running on different ports
+
+If 3000 or 8080 are already taken, copy `.env.example` to `.env` and set
+`FRONTEND_PORT` / `BACKEND_PORT`, or pass them inline:
+
+```bash
+FRONTEND_PORT=4000 BACKEND_PORT=9090 docker compose up --build
+```
+
+Then open `http://localhost:4000` (or whatever you set `FRONTEND_PORT` to).
+The containers still talk to each other over their internal ports, so nothing
+else needs to change.
+
 ## Running without Docker
 
 ### Prerequisites
@@ -70,7 +83,8 @@ mvn spring-boot:run
 ```
 
 Runs on `http://localhost:8080`. Uploaded media is written to `./uploads`
-(configurable via `UPLOAD_DIR`) and served at `/media/**`.
+(configurable via `UPLOAD_DIR`) and served at `/media/**`. To use a different
+port: `SERVER_PORT=9090 mvn spring-boot:run`.
 
 ### 3. Frontend
 
@@ -81,7 +95,9 @@ npm install
 npm run dev
 ```
 
-Runs on `http://localhost:3000`.
+Runs on `http://localhost:3000` by default. To use a different port:
+`npm run dev -- -p 4000` (and update `NEXT_PUBLIC_API_BASE_URL` in `.env.local`
+if you also changed the backend's port).
 
 ## Trying it out
 
