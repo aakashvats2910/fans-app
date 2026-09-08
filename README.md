@@ -44,15 +44,25 @@ and uploaded media volumes).
 ### Running on different ports
 
 If 3000 or 8080 are already taken, copy `.env.example` to `.env` and set
-`FRONTEND_PORT` / `BACKEND_PORT`, or pass them inline:
+`FRONTEND_PORT` / `BACKEND_PORT` there:
 
 ```bash
-FRONTEND_PORT=4000 BACKEND_PORT=9090 docker compose up --build
+cp .env.example .env
+# edit .env: set FRONTEND_PORT=4000 (or whatever you need)
+docker compose up --build
 ```
 
 Then open `http://localhost:4000` (or whatever you set `FRONTEND_PORT` to).
-The containers still talk to each other over their internal ports, so nothing
-else needs to change.
+
+**Use the `.env` file, not an inline `FRONTEND_PORT=4000 docker compose up`.**
+The backend's CORS allow-list is derived from `FRONTEND_PORT`, and Docker
+Compose only applies an inline env var to the exact command it's attached to.
+If you later run a scoped command like `docker compose up --build backend`
+(e.g. to pick up a backend code change) without repeating `FRONTEND_PORT=4000`,
+the backend gets recreated with CORS defaulting back to port 3000 while your
+frontend is still on 4000 — registration and login then fail in the browser
+with a CORS error, even though `curl` against the backend still works fine.
+A `.env` file is read on every invocation automatically, so this can't happen.
 
 ## Running without Docker
 
