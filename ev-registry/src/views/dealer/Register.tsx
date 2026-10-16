@@ -5,7 +5,6 @@ import { PARTS, PART_ID_LABEL } from "../../lib";
 import { useStore } from "../../store";
 import { Icon } from "../../components/Icon";
 import { Plate } from "../../components/Plate";
-import { QR } from "../../components/QR";
 
 interface Form {
   model: string; colour: string; chassis: string;
@@ -64,8 +63,7 @@ export function Register({ dealerId, open }: { dealerId: string; open: (id: stri
         <p className="muted">{done.owner.name} can now see this bike and its warranty on their phone.</p>
         <div className="card success-card">
           <Plate regNo={done.id} size="lg" />
-          <QR regNo={done.id} size={168} />
-          <p className="muted small">Fix this QR on the number plate before delivery. Scanning it opens the vehicle record.</p>
+          <p className="muted small">Fit this plate before delivery. Scanning its QR opens the vehicle record, and the registration number below it is for typing in.</p>
           <dl className="kv kv-grid">
             <div><dt>Model</dt><dd>{done.model}</dd></div>
             <div><dt>Registered in</dt><dd>{MAP.districts[done.district].name}</dd></div>

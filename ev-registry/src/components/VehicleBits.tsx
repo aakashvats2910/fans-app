@@ -6,7 +6,6 @@ import {
 import { REASON_OPTIONS, MAP, dealerById, newSerial } from "../data/seed";
 import { Icon } from "./Icon";
 import { Plate } from "./Plate";
-import { QR } from "./QR";
 import { useStore } from "../store";
 
 export const STATUS_TEXT: Record<WarrantyStatus, string> = { active: "Active", expiring: "Expiring soon", expired: "Expired" };
@@ -128,10 +127,6 @@ export function RegistrationCard({ vehicle, showOwner = true }: { vehicle: Vehic
             <span className="muted">{vehicle.colour} · 250 W · non-RTO</span>
           </div>
           <StatusPill status={overall}>Warranty {STATUS_TEXT[overall].toLowerCase()}</StatusPill>
-        </div>
-        <div className="reg-qr">
-          <QR regNo={vehicle.id} size={116} />
-          <span className="muted small">QR on plate</span>
         </div>
       </div>
 
