@@ -2,7 +2,7 @@ import { HistoryTimeline, PartsGrid, RegistrationCard } from "../../components/V
 import { SectionTitle } from "../../components/ui";
 import { Icon } from "../../components/Icon";
 import { MAP, dealerById } from "../../data/seed";
-import { PARTS, partWarranty } from "../../lib";
+import { PARTS, PART_LABEL, partWarranty } from "../../lib";
 import { useStore } from "../../store";
 
 function useMine(id: string) {
@@ -24,7 +24,7 @@ export function OwnerHome({ id, go }: { id: string; go: (tab: string) => void })
       {expiring.length > 0 && (
         <button className="notice notice-warn notice-btn" onClick={() => go("warranty")}>
           <Icon name="clock" size={20} />
-          <span><b>{expiring.map((k) => k).join(" and ")} warranty ends soon.</b> Get it checked at your dealer before it does.</span>
+          <span><b>{expiring.map((k) => PART_LABEL[k]).join(" and ")} warranty ends soon.</b> Get it checked at your dealer before it does.</span>
           <Icon name="chevron" size={16} />
         </button>
       )}
