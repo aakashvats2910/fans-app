@@ -1,6 +1,6 @@
 # EV Pehchaan
 
-Dummy-data front end for a registry of non-RTO, low-speed electric bikes in India. Three roles:
+Dummy-data front end (company: syfr.live) for a registry of non-RTO, low-speed electric bikes in India. Three roles:
 
 - **Company**: live India map with district-wise circles (deeper shade = more registrations),
   area-wise report, and warranty register for every vehicle.
