@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "./",
   plugins: [react()],
-  build: { target: "es2020", chunkSizeWarningLimit: 900 },
+  build: { target: "es2020", assetsInlineLimit: 200000, chunkSizeWarningLimit: 900 },
 });

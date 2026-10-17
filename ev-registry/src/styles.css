@@ -189,16 +189,12 @@ select.input { appearance: none; background-image: linear-gradient(45deg, transp
 
 /* ---------- plate ---------- */
 .plate-wrap { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; max-width: 100%; }
-.plate { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; background: var(--plate); color: var(--plate-ink); border: 2px solid #1a1500; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35); max-width: 100%; }
-.plate .plate-logo { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.plate-word { display: flex; flex-direction: column; line-height: 1; font-family: "Sora", var(--f-display); }
-.plate-word b { font-size: 1.15em; font-weight: 800; letter-spacing: -0.02em; }
-.plate-word b i { font-style: normal; color: #15803d; }
-.plate-word small { font-size: 0.4em; letter-spacing: 0.16em; font-weight: 700; margin-top: 4px; white-space: nowrap; }
+.plate { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; background: #fff; color: #111f18; border: 2px solid #111f18; border-radius: 12px; box-shadow: inset 0 0 0 1px rgba(17, 31, 24, 0.08); max-width: 100%; }
+.plate .plate-logo { display: block; width: auto; max-width: 100%; }
 .plate-no { font-size: 12.5px; color: var(--ink-2); letter-spacing: 0.04em; }
 .plate-sm { padding: 3px 6px 3px 5px; border-radius: 7px; border-width: 1.5px; gap: 8px; }
-.plate-md { padding: 6px 8px 6px 10px; font-size: 14px; border-radius: 9px; }
-.plate-lg { padding: 10px 12px 10px 16px; gap: 22px; font-size: 21px; }
+.plate-md { padding: 6px 8px 6px 10px; border-radius: 9px; }
+.plate-lg { padding: 10px 12px 10px 16px; gap: 22px; }
 .plate-wrap-sm .plate-no { font-size: 11.5px; }
 .plate-wrap-lg .plate-no { font-size: 14px; color: var(--ink); font-weight: 600; }
 

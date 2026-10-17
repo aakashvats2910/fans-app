@@ -5,7 +5,7 @@ import { useStore } from "../store";
 import { fmtNum } from "../lib";
 
 const ROLES: { id: Role; title: string; icon: string; blurb: string; who: string; cta: string }[] = [
-  { id: "company", title: "Company", icon: "building", who: "syfr.live · HQ", cta: "Open command centre", blurb: "Live registrations on the India map, area-wise reports and every warranty on record." },
+  { id: "company", title: "Company", icon: "building", who: "Ereganto · HQ", cta: "Open command centre", blurb: "Live registrations on the India map, area-wise reports and every warranty on record." },
   { id: "dealer", title: "Dealer", icon: "store", who: "Sharma E-Bikes · Lucknow", cta: "Open dealer desk", blurb: "Register a bike before you sell it, scan a plate QR, check warranty and parts history." },
   { id: "owner", title: "Vehicle owner", icon: "bike", who: "Rohit Verma", cta: "Open my EV", blurb: "Your registration, warranty on motor, controller and battery, and every part swap." },
 ];
