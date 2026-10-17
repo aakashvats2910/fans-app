@@ -69,10 +69,10 @@ export function pickDistrict(r: () => number): number {
 const FIRST = ["Aarav", "Rohit", "Sneha", "Priya", "Imran", "Kavita", "Suresh", "Anita", "Manoj", "Deepak", "Farhan", "Lakshmi", "Harpreet", "Joseph", "Meena", "Ravi", "Sunita", "Vikram", "Pooja", "Arjun", "Nisha", "Ganesh", "Salma", "Dinesh", "Bhavna", "Karthik", "Rekha", "Amit", "Tarun", "Geeta"];
 const LAST = ["Verma", "Sharma", "Patel", "Reddy", "Khan", "Singh", "Nair", "Iyer", "Das", "Yadav", "Gupta", "Joshi", "Mishra", "Pillai", "Chauhan", "Banerjee", "Kulkarni", "Thakur", "Mehta", "Rao"];
 export const MODELS = [
-  { name: "Ereganto Glide 250", note: "Commuter · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 24 } },
-  { name: "Ereganto Swift 250", note: "Sport · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 24 } },
-  { name: "Ereganto Cargo 250", note: "Load carrier · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 30 } },
-  { name: "Ereganto Lite 250", note: "Compact · 250 W hub motor", warrantyMonths: { motor: 24, controller: 24, battery: 18 } },
+  { name: "NeoVolt Glide 250", note: "Commuter · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 24 } },
+  { name: "NeoVolt Swift 250", note: "Sport · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 24 } },
+  { name: "NeoVolt Cargo 250", note: "Load carrier · 250 W hub motor", warrantyMonths: { motor: 36, controller: 24, battery: 30 } },
+  { name: "NeoVolt Lite 250", note: "Compact · 250 W hub motor", warrantyMonths: { motor: 24, controller: 24, battery: 18 } },
 ];
 export const COLOURS = ["Pearl White", "Forest Green", "Matte Black", "Signal Red", "Ocean Blue", "Sunrise Yellow"];
 const DEALER_A = ["Sharma", "Gupta", "Patel", "Reddy", "Khan", "Singh", "Nair", "Joshi", "Mehta", "Rao", "Das", "Yadav", "Green", "Volt", "Eco", "Sri Ganesh", "Balaji", "Shakti", "Jai Bharat", "Metro"];
@@ -174,7 +174,7 @@ export function seedVehicles(): Vehicle[] {
   // Demo owner: registered ~22 months ago, controller and motor replaced since, original battery warranty about to end.
   const ownerAt = new Date(now - 22.6 * 30.4 * DAY);
   const ov = makeVehicle({ dealer: demo, at: ownerAt, r, name: DEMO_OWNER_NAME });
-  ov.model = "Ereganto Glide 250"; ov.colour = "Forest Green";
+  ov.model = "NeoVolt Glide 250"; ov.colour = "Forest Green";
   ov.parts.motor.warrantyMonths = 36; ov.parts.controller.warrantyMonths = 24; ov.parts.battery.warrantyMonths = 24;
   const cWhen = new Date(now - 11 * 30.4 * DAY);
   const newCtl = newSerial("controller", r);
