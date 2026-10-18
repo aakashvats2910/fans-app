@@ -98,4 +98,4 @@ export function extractRegNo(text: string): string | null {
 }
 
 export const maskPhone = (p: string) => `+91 ${p.slice(0, 2)}••• ••${p.slice(-3)}`;
-export const qrPayload = (id: string) => `https://evpehchaan.in/v/${id}`;
+export const qrPayload = (id: string) => `https://zelio.example/v/${id}`;

@@ -5,7 +5,7 @@ import { useStore } from "../store";
 import { fmtNum } from "../lib";
 
 const ROLES: { id: Role; title: string; icon: string; blurb: string; who: string; cta: string }[] = [
-  { id: "company", title: "Company", icon: "building", who: "NeoVolt · HQ", cta: "Open command centre", blurb: "Live registrations on the India map, area-wise reports and every warranty on record." },
+  { id: "company", title: "Company", icon: "building", who: "Zelio · HQ", cta: "Open command centre", blurb: "Live registrations on the India map, area-wise reports and every warranty on record." },
   { id: "dealer", title: "Dealer", icon: "store", who: "Sharma E-Bikes · Lucknow", cta: "Open dealer desk", blurb: "Register a bike before you sell it, scan a plate QR, check warranty and parts history." },
   { id: "owner", title: "Vehicle owner", icon: "bike", who: "Rohit Verma", cta: "Open my EV", blurb: "Your registration, warranty on motor, controller and battery, and every part swap." },
 ];
@@ -15,7 +15,7 @@ export function Landing({ onPick }: { onPick: (r: Role) => void }) {
   return (
     <div className="landing">
       <header className="landing-top">
-        <div className="brand"><Logo size={34} /><b>EV Pehchaan</b></div>
+        <div className="brand"><Logo size={34} /><b>Zelio</b></div>
         <ThemeButton />
       </header>
       <section className="landing-hero">

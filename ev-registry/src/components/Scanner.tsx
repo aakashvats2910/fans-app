@@ -22,7 +22,7 @@ export function Scanner({ onFound, demo, knows }: Props) {
 
   const handle = (text: string) => {
     const reg = extractRegNo(text);
-    if (!reg) return setMsg("That QR code is not an EV Pehchaan plate.");
+    if (!reg) return setMsg("That QR code is not an Zelio plate.");
     if (!knows(reg)) return setMsg(`${reg} is not in the registry. Check the number and try again.`);
     setMsg(null);
     onFound(reg);

@@ -53,7 +53,7 @@ export function Shell({ role, who, nav, tab, onTab, onSwitch, title, back, child
   return (
     <div className={`app app-${role}`}>
       <aside className="side">
-        <div className="brand"><Logo /><b>EV Pehchaan</b></div>
+        <div className="brand"><Logo /><b>Zelio</b></div>
         <div className="who">
           <span className="who-role">{ROLE_LABEL[role]}</span>
           <b>{who}</b>

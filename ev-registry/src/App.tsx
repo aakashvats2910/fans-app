@@ -33,7 +33,7 @@ const NAV: Record<Role, NavItem[]> = {
   ],
 };
 const FIRST_TAB: Record<Role, string> = { company: "live", dealer: "home", owner: "home" };
-const WHO: Record<Role, string> = { company: "NeoVolt · HQ", dealer: "Sharma E-Bikes", owner: "Rohit Verma" };
+const WHO: Record<Role, string> = { company: "Zelio · HQ", dealer: "Sharma E-Bikes", owner: "Rohit Verma" };
 
 export function App() {
   const { demoOwnerVehicle } = useStore();

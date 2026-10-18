@@ -12,7 +12,7 @@ const css = readFileSync(`dist/${cssFile}`, "utf8");
 mkdirSync(".artifact", { recursive: true });
 writeFileSync(
   ".artifact/page.html",
-  `<title>EV Pehchaan</title>
+  `<title>Zelio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="${fonts}">
 <style>${css}</style>

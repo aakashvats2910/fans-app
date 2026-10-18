@@ -1,6 +1,6 @@
 import { QR } from "./QR";
-import logo from "../assets/neovolt-logo.png";
-import mark from "../assets/neovolt-mark.png";
+import logo from "../assets/zelio-logo.png";
+import mark from "../assets/zelio-mark.png";
 
 const SIZES = {
   sm: { logo: 0, mark: 28, qr: 34 },
@@ -10,14 +10,14 @@ const SIZES = {
 
 /**
  * The plate on the bike. Non-RTO bikes carry no printed registration number on the plate:
- * it shows the maker's logo (NeoVolt) and a QR code that opens the vehicle record. The
+ * it shows the maker's logo (Zelio) and a QR code that opens the vehicle record. The
  * registration number is printed beneath it for people who need to type it.
  */
 export function Plate({ regNo, size = "md" }: { regNo: string; size?: "sm" | "md" | "lg" }) {
   const s = SIZES[size];
   return (
     <span className={`plate-wrap plate-wrap-${size}`}>
-      <span className={`plate plate-${size}`} role="img" aria-label={`Number plate with NeoVolt logo and QR code for ${regNo}`}>
+      <span className={`plate plate-${size}`} role="img" aria-label={`Number plate with Zelio logo and QR code for ${regNo}`}>
         {s.logo ? (
           <img className="plate-logo" src={logo} alt="" style={{ height: s.logo }} />
         ) : (
